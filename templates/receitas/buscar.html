@@ -1,6 +1,5 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 {% load static %}
-
 {% block content %}
     <!-- Preloader -->
     <div id="preloader">
@@ -16,9 +15,9 @@
     <section class="best-receipe-area">
         <div class="container">
             <div class="row">
-                <!-- Single Best Receipe Area -->
-                {% if receitas is not Null %}
+                {% if receitas %}
                 {% for receita in receitas %}
+                <!-- Single Best Receipe Area -->
                 <div class="col-12 col-sm-6 col-lg-4">
                     <div class="single-best-receipe-area mb-30">
                         {% if receita.foto_receita == '' %}
@@ -26,9 +25,9 @@
                         {% else %}
                             <img src="{{ receita.foto_receita.url }}" alt="">
                         {% endif %}
-                        <div class="receipe-content">
+                            <div class="receipe-content">
                             <a href="{% url 'receita' receita.id %}">
-                                <h5>{{receita.nome_receita}}</h5>
+                                <h5>{{ receita.nome_receita }}</h5>
                             </a>
                         </div>
                     </div>
@@ -36,9 +35,7 @@
                 {% endfor %}
                 {% else %}
                 <div class="col-12 col-sm-6 col-lg-4">
-                    <p>
-                        Receita não encontrada
-                    </p>
+                    <p>Receita não encontrada</p>
                 </div>
                 {% endif %}
             </div>
@@ -47,5 +44,4 @@
     <!-- ##### Best Receipe Area End ##### -->
 
     {% include 'partials/_footer.html' %}
-
 {% endblock %}

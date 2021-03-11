@@ -1,6 +1,5 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
 {% load static %}
-
 {% block content %}
     <!-- Preloader -->
     <div id="preloader">
@@ -12,7 +11,7 @@
 
     {% include 'partials/_menu.html' %}
 
-        <!-- Receipe Post Search -->
+        <!-- Receipe Post Search 
         <div class="receipe-post-search mb-80">
             <div class="container">
                 <form action="#" method="post">
@@ -30,7 +29,7 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </div> -->
 
         <!-- Receipe Slider -->
         <div class="container">
@@ -40,7 +39,7 @@
                         {% if receita.foto_receita == '' %}
                             <img src="{% static 'img/bg-img/tomate_banner.jpg' %}">
                         {% else %}
-                            <img src="{{ receita.foto_receita.url }}">
+                            <img src="{{ receita.foto_receita.url }}" alt="">
                         {% endif %}
                     </div>
                 </div>
@@ -55,10 +54,10 @@
                     <div class="col-12 col-md-8">
                         <div class="receipe-headline my-5">
                             <span>{{ receita.data_receita }}</span>
-                            <h2>{{ receita.nome_receita }}</h2>
+                            <h2>{{receita.nome_receita}}</h2>
                             <div class="receipe-duration">
-                                <h6>Preparo: {{ receita.tempo_preparo }} minutos</h6>
-                                <h6>Rendimento: {{ receita.rendimento }} porçoes</h6>
+                                <h6>Preparo: {{receita.tempo_preparo}} minutos</h6>
+                                <h6>Rendimento: {{receita.rendimento}}</h6>
                                 <h6>Categoria: {{receita.categoria}}</h6>
                                 <h6>Por: {{ receita.pessoa }}</h6>
                             </div>
@@ -69,14 +68,14 @@
                     <div class="col-12 col-lg-8">
                         <!-- Single Preparation Step -->
                         <div class="single-preparation-step d-flex">
-                            <p>{{ receita.modo_preparo }}</p>
+                            <p>{{receita.modo_preparo}}</p>
                         </div>
                     </div>
 
                     <!-- Ingredientes -->
                     <div class="col-12 col-lg-4">
                         <div class="ingredients">
-                            <h4>Ingredientees</h4>
+                            <h4>Ingredientes</h4>
                             <div class="ingredients">
                                 <p>{{receita.ingredientes}}</p>
                             </p>
@@ -87,5 +86,4 @@
                 <!-- Ingredientes -->
 
     {% include 'partials/_footer.html' %}
-
 {% endblock %}
